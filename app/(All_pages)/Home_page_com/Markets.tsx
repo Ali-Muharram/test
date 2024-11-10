@@ -2,9 +2,9 @@
 import React from 'react'
 import Image from 'next/image'
 
-export default function Markets() {
+export default function Markets({ ShopsData }) {
     return (
-        <section className='w-full gap-5  flex flex-col justify-center '>
+        <section className='w-full gap-5 h-full flex flex-col justify-center '>
             <div className='w-full flex border border-[#2ed87b] border-y-0 border-l-0 bg-white justify-between items-center  p-4 '>
 
                 <div className='flex gap-2'>
@@ -24,14 +24,20 @@ export default function Markets() {
             </div>
 
             <div className='w-full gap-5  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center '>
-                {Array.from({ length: 12 }, (_, index) => (
-                    <Markets_comp
-                        key={index}
-                        name={"نمشي "}
-                        desc="تخفيض يتراوح ما بين 5% - 10%"
-                        img="/img/SHE.png"
-                    />
+                {ShopsData.map((item, index) => (
+                    <div className='h-full' key={item.id}>
+                        <Markets_comp
+                            name={item.NameShop}
+                            KhasmValue={item.KhasmValue}
+                            img={`${process.env.API_HOST}uploads/Shops/${item.PhotoShop}`}
+                            CategoryType={item.CategoryType}
+                            countcoupons={item.countcoupons}
+                        />
+                    </div>
+
                 ))}
+
+
 
             </div>
 
@@ -40,12 +46,13 @@ export default function Markets() {
 }
 
 
-function Markets_comp({ img, desc, name }) {
+
+function Markets_comp({ img, KhasmValue, name, CategoryType, countcoupons }) {
     return (
-        <section className='bg-white   gap-3 flex cursor-pointer relative flex-col items-center justify-center p-5'>
+        <section className='bg-white h-full  gap-3 flex cursor-pointer relative flex-col items-center justify-center p-5'>
             <div className='top-0 w-[80px] h-[85px] overflow-hidden right-0  items-center justify-center flex transform text-xs absolute  '>
                 <div className='rotate-45 flex items-center justify-center  text-center px-1 pb-[1.5px] h-fit w-full relative left-4 -top-5 bg-[#ff3100] text-white'>
-                    موصى به
+                    {CategoryType}
                 </div>
             </div>
             <Image
@@ -56,7 +63,7 @@ function Markets_comp({ img, desc, name }) {
                 layout='fixed'
             />
             <p className='text-[#97a4ad] text-center text-xs'>
-                {desc}
+                {KhasmValue}
             </p>
             <p className='text-gray-900 font-semibold text-center text-xs'>
                 {name}
@@ -68,7 +75,7 @@ function Markets_comp({ img, desc, name }) {
                 MozTransition: 'opacity 0.45s ease-in-out',    // Firefox
                 msTransition: 'opacity 0.45s ease-in-out',     // Internet Explorer
             }} className=' transition-opacity duration-750 opacity-0 hover:opacity-100 absolute bg-[#99d038] h-full w-full text-center flex items-center justify-center text-white text-2xl '>
-                عدد الكوبونات 50
+                عدد الكوبونات {countcoupons}
             </h3>
         </section>
     )

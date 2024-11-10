@@ -55,16 +55,16 @@ export default function Carousel({ slider }) {
 
                 <div className=" flex   h-full overflow-hidden rounded-lg md:h-full">
                     {array_carousel.map((slider: any, index: React.Key) => (
-                        <a href={slider.market_url} onClick={() => copyToClipboard(slider.coupon)} target='blank' key={index} className={` min-w-full  flex flex-col  flex-1  duration-700 ease-in-out`} data-carousel-item style={{ transform: `translateX(${currentIndex * 100}%)` }}>
+                        <a href={slider.market_url} onClick={() => copyToClipboard(slider.coupon)} target='blank' key={index} className={` min-w-full  flex flex-col  object-cover h-full  duration-700 ease-in-out`} data-carousel-item style={{ transform: `translateX(${currentIndex * 100}%)` , objectFit:"cover" }}>
                             <Image
                                 src={`${process.env.NEXT_PUBLIC_API_HOST}uploads/slider/${slider.photo_url}`}
                                 alt={`imgg`}
                                 width={400}
-                                height={300}
+                                height={400}
                                 layout='responsive'
                                 loading="lazy"
                                 decoding="async"
-
+                                objectFit="cover"
                             />
                         </a>
                     ))}

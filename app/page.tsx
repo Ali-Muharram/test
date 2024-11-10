@@ -13,36 +13,34 @@ import { Get_carousels } from './(All_pages)/Home_page_com/api/carousels';
 import St from './_components/st';
 
 export default async function Page() {
-   
 
 
-   
-        const url = `${process.env.API_HOST}homepage`;
-    
-    
-       
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    St: St(),
-                    'Cache-Control': 'no-cache'
-                },
-                cache: 'no-store'
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-    
-            const data = await response.json();
-    
-    
-        
-    
-    
+
+
+    const url = `${process.env.API_HOST}homepage`;
+
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            St: St(),
+            'Cache-Control': 'no-cache'
+        },
+        cache: 'no-store'
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+
+
+
+
+
 
     const HomePageData = data
-   
+
 
 
 
@@ -76,14 +74,14 @@ export default async function Page() {
                     <Cuntry data={HomePageData.CountriesData} />
                 </div>
                 <div className='md:col-span-1 lg:col-span-1'>
-                    <Categories data={HomePageData.CategoriesData}  />
+                    <Categories data={HomePageData.CategoriesData} />
                 </div>
 
             </div>
 
             {/* <Eplane_process /> */}
 
-            <Markets />
+            <Markets ShopsData={HomePageData.ShopsData} />
 
             <div className='w-full gap-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 '>
                 <div className='md:col-span-1 lg:col-span-3  '>
@@ -116,9 +114,12 @@ export default async function Page() {
 
                 </div>
                 <div className=' w-full  gap-5 grid grid-cols-1 md:grid-cols-3'>
-                    <Posts />
-                    <Posts />
-                    <Posts />
+                    {HomePageData.BlogsData.map((Blog, index) => (
+                        <div key={Blog.id}> <Posts info={Blog} /></div>
+                    ))}
+
+                    {/* <Posts />
+                    <Posts /> */}
 
                 </div>
 
