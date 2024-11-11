@@ -25,7 +25,7 @@ export default async function Page() {
             St: St(),
             'Cache-Control': 'no-cache'
         },
-        cache: 'no-store',
+        // cache: 'no-store',
         next: { revalidate: 60 }
     });
 
