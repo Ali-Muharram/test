@@ -62,8 +62,8 @@ export default function Carousel({ slider }) {
                                 <Image
                                     src={`${process.env.NEXT_PUBLIC_API_HOST}uploads/slider/${slider.photo_url}`}
                                     alt={`imgg`}
-                                    width={400}
-                                    height={800}
+                                    width={300}
+                                    height={300}
                                     layout='responsive'
                                     loading="lazy"
                                     decoding="async"
