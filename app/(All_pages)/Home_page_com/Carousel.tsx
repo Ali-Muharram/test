@@ -55,17 +55,22 @@ export default function Carousel({ slider }) {
 
                 <div className=" flex   h-full overflow-hidden rounded-lg md:h-full">
                     {array_carousel.map((slider: any, index: React.Key) => (
-                        <a href={slider.market_url} onClick={() => copyToClipboard(slider.coupon)} target='blank' key={index} className={` min-w-full  flex flex-col  object-cover h-full  duration-700 ease-in-out`} data-carousel-item style={{ transform: `translateX(${currentIndex * 100}%)` , objectFit:"cover" }}>
-                            <Image
-                                src={`${process.env.NEXT_PUBLIC_API_HOST}uploads/slider/${slider.photo_url}`}
-                                alt={`imgg`}
-                                width={400}
-                                height={400}
-                                layout='responsive'
-                                loading="lazy"
-                                decoding="async"
-                                objectFit="cover"
-                            />
+                        <a
+                            href={slider.market_url} onClick={() => copyToClipboard(slider.coupon)} target='blank' key={index}
+                            className={`  min-w-full  flex flex-col  object-cover h-full  duration-700 ease-in-out`} data-carousel-item style={{ transform: `translateX(${currentIndex * 100}%)`, objectFit: "cover" }}>
+                            <div className='flex bg-black h-full'>
+                                <Image
+                                    src={`${process.env.NEXT_PUBLIC_API_HOST}uploads/slider/${slider.photo_url}`}
+                                    alt={`imgg`}
+                                    width={400}
+                                    height={800}
+                                    layout='responsive'
+                                    loading="lazy"
+                                    decoding="async"
+                                    objectPosition="center"
+                                />
+                            </div>
+
                         </a>
                     ))}
 
@@ -73,9 +78,9 @@ export default function Carousel({ slider }) {
 
                 </div>
 
-                <div className="absolute z-10 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                <div className="absolute z-10 flex -translate-x-1/2 bottom-2 left-1/2 space-x-3 rtl:space-x-reverse md:bottom-5">
                     {array_carousel.map((slider, index) => (
-                        <button onClick={() => { postion(index) }} type="button" className={` ${currentIndex == index ? "bg-main" : "bg-gray-300"} transition-all duration-300 w-3 h-3 rounded-full `} aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                        <button onClick={() => { postion(index) }} type="button" className={` ${currentIndex == index ? "bg-main" : "bg-gray-300"} transition-all duration-300 md:w-3 md:h-3 w-1 h-1 rounded-full px-3 md:px-0 `} aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                     ))}
                 </div>
 

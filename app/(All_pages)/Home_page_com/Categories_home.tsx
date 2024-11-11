@@ -33,7 +33,7 @@ export default function Categories({ data }) {
     // { icon: "faPlane", label: "السفر", count: 48 },
     return (
         <section className='w-full  bg-white p-5 h-full  text-black'>
-            <div className='w-ful grid grid-cols-2 gap-4 lg:grid-cols-1'>
+            <div className='w-ful grid grid-cols-2 gap-4 md:grid-cols-1'>
                 {data.map((item, index) => (
                     <div key={index.id} className='w-full rounded cursor-pointer transition-all duration-200 hover:-translate-x-4 flex border pb-2 border-gray-500/10 border-x-0 border-t-0  '>
 
