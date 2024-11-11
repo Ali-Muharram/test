@@ -43,6 +43,8 @@ export default function Categories({ data }) {
                             height={35}
                             alt={item.CategoryPhoto}
                             layout='fixed'
+                            priority={true}  
+
                         />
                         <p className='h-full w-[1px] text-transparent mx-2 bg-black/20'>d</p>
                         <p className='text-[#717f86] h-full flex items-center text-sm'>{item.CategoryName}</p>
