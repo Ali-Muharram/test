@@ -23,7 +23,7 @@ export default async function Page() {
         method: 'GET',
         headers: {
             St: St(),
-            'Cache-Control': 'no-cache'
+            // 'Cache-Control': 'no-cache'
         },
         // cache: 'no-store',
         next: { revalidate: 60 }
