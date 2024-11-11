@@ -66,7 +66,7 @@ export default function Carousel({ slider }) {
                                     height={100}
                                     layout='responsive'
                                    
-                                    loading="eager"  // Ensures the image loads immediately for better LCP
+                                    loading="eager"  
                                     priority={true}  
                                     decoding="async"
                                     objectPosition="center"
