@@ -25,11 +25,16 @@ export default async function Page() {
             St: St(),
             'Cache-Control': 'no-cache'
         },
-        cache: 'no-store'
+        cache: 'no-store',
+        next: { revalidate: 60 }
     });
 
     if (!response.ok) {
         throw new Error('Network response was not ok');
+    }
+    if (response.ok) {
+        console.log("fetch=========================");
+        
     }
 
     const data = await response.json();
