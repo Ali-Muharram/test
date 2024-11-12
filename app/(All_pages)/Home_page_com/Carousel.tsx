@@ -67,7 +67,7 @@ export default function Carousel({ slider }) {
                                     layout='responsive'
                                    
                                     loading='lazy' 
-                                    priority={true}  
+                                   
                                     decoding="async"
                                     objectPosition="center"
                                 />

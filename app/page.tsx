@@ -90,7 +90,7 @@ export default async function Page() {
 
             <div className='w-full gap-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 '>
                 <div className='md:col-span-1 lg:col-span-3  '>
-                    <Copone_section />
+                    <Copone_section CouponesData={HomePageData.CouponesData} />
                 </div>
 
                 <div className='md:col-span-1 flex flex-col gap-3  lg:col-span-1'>

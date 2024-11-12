@@ -148,6 +148,7 @@ function Content_post({ info }) {
           width={300}
           height={100}
           layout='responsive'
+          loading='lazy' 
         />
       </div>
 

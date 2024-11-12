@@ -1,33 +1,51 @@
-"use client"
 
-import React, { useRef, useState, useEffect } from 'react'
+
+import React from 'react'
 import Navigator from '../../_components/navigator/navigator'
 import Image from 'next/image'
 import Copones from '../../_components/copones/Copones'
+import St from '../../_components/st'
 
-export default function page() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const contentRef = useRef(null);
-    const contentRef2 = useRef(null);
+export default async function page() {
+ 
 
     /* -------------- navebar toogle open and close in phone style -------------- */
 
     const toggleHeight1 = (ob) => {
-        if (isOpen) {
+       
             ob.current.classList.remove("p-3")
             ob.current.classList.remove("max-h-[1000px]")
             ob.current.classList.add("max-h-0")
-        }
-        if (!isOpen) {
-            ob.current.classList.add("p-3")
-            ob.current.classList.add("max-h-[1000px]")
-            ob.current.classList.remove("max-h-0")
-        }
-
-        setIsOpen(!isOpen)
+       
 
     };
+
+    /* -------------------------------------------------------------------------- */
+    /*                                 fetch data                                 */
+    /* -------------------------------------------------------------------------- */
+    const url = `${process.env.API_HOST}Coupones`;
+
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            St: St(),
+            // 'Cache-Control': 'no-cache'
+        },
+        // cache: 'no-store',
+        next: { revalidate: 20 }
+    });
+
+    if (!response.ok) {
+        // throw new Error('Network response was not ok');
+    }
+    if (response.ok) {
+
+
+    }
+
+    const CouponesData = await response.json();
+
+
     return (
         <>
 
@@ -35,17 +53,11 @@ export default function page() {
             <section className='h-full w-full  mt-5 grid  grid- gap-5 lg:grid-cols-4'>
 
                 <section className='w-full order-2 h-fit lg:col-span-3 grid grid-cols-1 gap-5 lg:order-1 '>
+                    {CouponesData.map((coupone, index) => (
+                        <div key={coupone.id}>  <Copones coponeData={coupone} />
+                        </div>
+                    ))}
 
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
-                    <Copones />
                 </section>
 
 
@@ -55,12 +67,12 @@ export default function page() {
                     {/* <Search /> */}
 
                     <div
-                        onClick={() => { toggleHeight1(contentRef2) }}
+                        // onClick={() => { toggleHeight1(contentRef2) }}
                         className=''>
 
                         <div className='w-full p-3 mb-5 flex items-center justify-between bg-white'>
                             <div className='w-full flex gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width={"20px"} viewBox="0 0 448 512"><path fill="#2ed87b" d="M0 80L0 229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7L48 32C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width={"20px"} viewBox="0 0 448 512"><path fill="#2ed87b" d="M0 80L0 229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7L48 32C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" /></svg>
 
                                 <h1 className='text-lg   bg-white  cursor-pointer text-black font-semibold'>اقوى الصفقات</h1>
 
@@ -75,15 +87,16 @@ export default function page() {
                         </div>
 
                         <div
-                            ref={contentRef2}
+                            // ref={contentRef2}
                             className='  overflow-hidden bg-white transition-height duration-200 max-h-0 lg:max-h-full lg:p-2  ' >
+
                             <Copones_posts />
 
                         </div>
                     </div>
 
                     <div
-                        onClick={() => { toggleHeight1(contentRef) }}
+                        // onClick={() => { toggleHeight1(contentRef) }}
                         className='  '>
 
                         <div className='w-full p-3 mb-5 flex items-center justify-between bg-white'>
@@ -102,7 +115,7 @@ export default function page() {
 
 
                         <div
-                            ref={contentRef}
+                            // ref={contentRef}
                             className='w-full overflow-hidden  transition-height duration-200  bg-white max-h-0 lg:max-h-full lg:p-2 '>
 
                             <More_markts />

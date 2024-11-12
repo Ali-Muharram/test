@@ -2,7 +2,7 @@ import React from 'react'
 import Copones from '../../_components/copones/Copones'
 import Link from 'next/link'
 
-export default function Copone_section() {
+export default function Copone_section({ CouponesData }) {
     return (
         <section className='w-full gap-5  h-full flex flex-col justify-center'>
 
@@ -26,13 +26,15 @@ export default function Copone_section() {
             </div >
 
             <div className='flex flex-col gap-5 justify-between  h-full'>
-                <Copones />
-                <Copones />
-                <Copones />
-                <Copones />
-                <Copones />
-                <Copones />
-                
+                {CouponesData.map((copone, index) => (
+                    <div key={copone.id}>
+                        <Copones coponeData={copone} />
+                    </div>
+
+                ))}
+
+
+
             </div>
 
         </section >

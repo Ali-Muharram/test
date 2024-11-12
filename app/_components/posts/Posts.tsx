@@ -14,6 +14,7 @@ export default function Posts({ info }) {
                     width={300}
                     height={300}
                     layout='responsive'
+                    loading='lazy'
                 />
             </Link>
             <div className='p-4 flex flex-col gap-5 '>
