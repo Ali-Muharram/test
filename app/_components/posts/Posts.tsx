@@ -3,18 +3,23 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function Posts({ info }) {
+    let link = `/blog/${info.BlogTitleLink}`
     return (
         <section className='bg-white flex flex-col cursor-pointer '>
-            <Image
-                src={`${process.env.API_HOST}uploads/Blogs/${info.BlogPhoto}`}
-                // src={"https://preview.itgeeksin.com/blackfriday/assets/img/all/image7.jpg"}
-                alt=''
-                width={300}
-                height={300}
-                layout='responsive'
-            />
+            <Link href={link}>
+                <Image
+                    src={`${process.env.API_HOST}uploads/Blogs/${info.BlogPhoto}`}
+                    // src={"https://preview.itgeeksin.com/blackfriday/assets/img/all/image7.jpg"}
+                    alt=''
+                    width={300}
+                    height={300}
+                    layout='responsive'
+                />
+            </Link>
             <div className='p-4 flex flex-col gap-5 '>
-                <h1 className='text-[#262626] hover:text-[#2ed87b] transition-all duration-300 font-semibold'>{info.BlogTitle}</h1>
+
+                <h1 className='text-[#262626] hover:text-[#2ed87b] transition-all duration-300 font-semibold'>
+                    <Link href={link}>  {info.BlogTitle}  </Link></h1>
 
                 <div className='flex items-center gap-4 text-xs text-[#777777]'>
                     <div className='flex  items-center gap-1'>
@@ -32,7 +37,7 @@ export default function Posts({ info }) {
                         {info.limitContent}
                     </p>
                     <div className='w-full flex items-center justify-end '>
-                        <Link href={"/"} className="text-[#777] mt-5  hover:text-[#2ed87b] transition-all duration-300 cursor-pointer"> قرائه المزيد </Link>
+                        <Link href={link} className="text-[#777] mt-5  hover:text-[#2ed87b] transition-all duration-300 cursor-pointer"> قرائه المزيد </Link>
 
                     </div>
 

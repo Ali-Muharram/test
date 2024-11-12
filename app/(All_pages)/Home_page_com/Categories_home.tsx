@@ -10,27 +10,7 @@ export default function Categories({ data }) {
 
     };
 
-    // const catArray: Category[] = [
-    //     { img: "/icons/اجهزة منزلية.png", name: "اجهزة منزلية" },
-    //     { img: "/icons/احذية.png", name: "احذية" },
-    //     { img: "/icons/اكسسوارت.png", name: "اكسسوارت" },
-    //     { img: "/icons/الام والطفل.png", name: "الام والطفل" },
-    //     { img: "/icons/الجمال والعناية.png", name: "الجمال والعناية" },
-    //     { img: "/icons/الكترونيات.png", name: "الكترونيات" },
-    //     { img: "/icons/الملابس.png", name: "الملابس" },
-    // ];
-
-
-
-    // { icon: "faCutlery", label: "الطعام والمشروبات", count: 40 },
-    // { icon: "faCalendar", label: "الفعاليات", count: 42 },
-    // { icon: "faFemale", label: "الجمال", count: 48 },
-    // { icon: "faBolt", label: "اللياقة البدنية", count: 33 },
-    // { icon: "faImage", label: "الأثاث", count: 50 },
-    // { icon: "faUmbrella", label: "الموضة", count: 33 },
-    // { icon: "faShoppingCart", label: "التسوق", count: 37 },
-    // { icon: "faHome", label: "المنزل والحديقة", count: 30 },
-    // { icon: "faPlane", label: "السفر", count: 48 },
+   
     return (
         <section className='w-full  bg-white p-5 h-full  text-black'>
             <div className='w-ful grid grid-cols-2 gap-4 md:grid-cols-1'>

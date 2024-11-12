@@ -5,6 +5,7 @@ import Copones_posts from './Copones_posts'
 import More_markts from './More_markets'
 import St from '../../../_components/st'
 
+
 export default async function page({ params }) {
   let BlogTitleLink = decodeURIComponent(params.blog_bosts[0])
 
@@ -21,7 +22,7 @@ export default async function page({ params }) {
     body: JSON.stringify({ BlogTitleLink }) // تأكد من أن BlogTitleLink معرف
   });
 
- 
+
 
   if (!response.ok) {
     return ('Sorry, not found');
@@ -59,7 +60,7 @@ export default async function page({ params }) {
 
         <div className=' w-full order-1 flex flex-col gap-5 lg:order-2    '>
           {/* <Search /> */}
-
+         
           <div
             // onClick={(e) => { toggleHeight1(e) }}
 
@@ -74,6 +75,8 @@ export default async function page({ params }) {
                 <h1 className='text-lg   bg-white  cursor-pointer text-black font-semibold'>اقوى الصفقات</h1>
 
               </div>
+
+
 
               <div className=' rounded-full bg-main cursor-pointer'>
                 <svg className=' transform rotate-90 lg:hidden' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f7f7f7"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" /></svg>
@@ -168,8 +171,8 @@ function Content_post({ info }) {
         </div>
         <div className='w-full flex  flex-col text-justify   text-[#777777]'>
           <p className='' dangerouslySetInnerHTML={{ __html: info.content }}>
-            
-         
+
+
           </p>
 
 
