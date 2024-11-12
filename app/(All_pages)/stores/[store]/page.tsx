@@ -47,7 +47,7 @@ export default function page() {
                             <h4 className='font-[600] text-lg'>  احدث الكوبونات والعروض</h4>
                         </div> */}
                         {Array.from({ length: 10 }).map((_, index) => (
-                            <Copones />
+                            <Copones coponeData={[]} />
                         ))
 
                         }
