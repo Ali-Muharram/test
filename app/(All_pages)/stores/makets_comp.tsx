@@ -11,6 +11,7 @@ export default function Markets_comp() {
     const scroll = (pos) => {
         itemRefs.current[pos].scrollIntoView({ behavior: 'smooth' });
     }
+    
     return (
         <>
             { /* -------------------------------------------------------------------------- */
