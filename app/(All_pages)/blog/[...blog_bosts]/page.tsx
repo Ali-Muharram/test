@@ -30,6 +30,7 @@ export default async function page({ params }) {
 
   const BlogCustomPageData = await response.json();
 
+  console.log(BlogCustomPageData);
 
 
 
@@ -60,7 +61,7 @@ export default async function page({ params }) {
 
         <div className=' w-full order-1 flex flex-col gap-5 lg:order-2    '>
           {/* <Search /> */}
-         
+
           <div
             // onClick={(e) => { toggleHeight1(e) }}
 
@@ -148,7 +149,7 @@ function Content_post({ info }) {
           width={300}
           height={100}
           layout='responsive'
-          loading='lazy' 
+          loading='lazy'
         />
       </div>
 

@@ -27,13 +27,16 @@ export default function Markets({ ShopsData }) {
             <div className='w-full gap-5  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center '>
                 {ShopsData.map((item, index) => (
                     <div className='h-full' key={item.id}>
-                        <Markets_comp
-                            name={item.NameShop}
-                            KhasmValue={item.KhasmValue}
-                            img={`${process.env.API_HOST}uploads/Shops/${item.PhotoShop}`}
-                            CategoryType={item.CategoryType}
-                            countcoupons={item.countcoupons}
-                        />
+                        <Link className={"w-full h-full"} href={"/stores/" + item.InternalUrlShop}>
+                            <Markets_comp
+                                Link={item.InternalUrlShop}
+                                name={item.NameShop}
+                                KhasmValue={item.KhasmValue}
+                                img={`${process.env.API_HOST}uploads/Shops/${item.PhotoShop}`}
+                                CategoryType={item.CategoryType}
+                                countcoupons={item.countcoupons}
+                            />
+                        </Link>
                     </div>
 
                 ))}
@@ -48,7 +51,7 @@ export default function Markets({ ShopsData }) {
 
 
 
-function Markets_comp({ img, KhasmValue, name, CategoryType, countcoupons }) {
+function Markets_comp({ img, KhasmValue, name, CategoryType, countcoupons, Link }) {
     return (
         <section className='bg-white h-full  gap-3 flex cursor-pointer relative flex-col items-center justify-center p-5'>
             <div className='top-0 w-[80px] h-[85px] overflow-hidden right-0  items-center justify-center flex transform text-xs absolute  '>
@@ -70,14 +73,17 @@ function Markets_comp({ img, KhasmValue, name, CategoryType, countcoupons }) {
                 {name}
             </p>
 
-            <h3 style={{
+            <span style={{
                 transition: 'opacity 0.45s ease-in-out',
                 WebkitTransition: 'opacity 0.45s ease-in-out', // Safari
                 MozTransition: 'opacity 0.45s ease-in-out',    // Firefox
                 msTransition: 'opacity 0.45s ease-in-out',     // Internet Explorer
             }} className=' transition-opacity duration-750 opacity-0 hover:opacity-100 absolute bg-[#99d038] h-full w-full text-center flex items-center justify-center text-white text-2xl '>
+
+
                 عدد الكوبونات {countcoupons}
-            </h3>
+            </span>
+
         </section>
     )
 }
