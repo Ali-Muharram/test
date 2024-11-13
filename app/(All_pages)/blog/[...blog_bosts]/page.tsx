@@ -140,9 +140,7 @@ function Content_post({ info }) {
 
     <section className='bg-white flex-1   flex flex-col cursor-pointer  '>
       <div className='w-full flex h-60 md:h-120 lg:h-96   '>
-        {/* <img className="w-full h-96" src="https://preview.itgeeksin.com/blackfriday/assets/img/all/image7.jpg" alt="" /> */}
         <Image className=''
-          // src={"https://preview.itgeeksin.com/blackfriday/assets/img/all/image7.jpg"}
           src={`${process.env.API_HOST}uploads/Blogs/${info.BlogPhoto}`}
 
           alt=''
@@ -171,11 +169,9 @@ function Content_post({ info }) {
           </div>
 
         </div>
-        <div className='w-full flex  flex-col text-justify   text-[#777777]'>
-          <p className='' dangerouslySetInnerHTML={{ __html: info.content }}>
-
-
-          </p>
+       
+        <div  dangerouslySetInnerHTML={{ __html: info.content }}  className='w-full flex  flex-col text-justify   text-[#777777]'>
+         
 
 
 
